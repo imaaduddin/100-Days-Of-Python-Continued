@@ -45,6 +45,12 @@
 
 #Write your code below this line 👇
 def prime_checker(number):
+    if number == 2:
+        print("it's a prime number")
+    elif number % 2 != 0:
+        print("it's a prime number")
+    else:
+        print("It's not a prime number")
     
 
 
