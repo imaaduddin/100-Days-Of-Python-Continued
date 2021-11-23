@@ -20,13 +20,14 @@ shift = int(input("Type the shift number:\n"))
 
 #TODO-3: Call the encrypt function and pass in the user inputs. You should be able to test the code and encrypt a message.
 
-def encrypt(text, shift):
-    for i in range(len(text)):
-        output = ""
-        if i in alphabet:
-            i + shift
-            output = i
-    print("The encoded text is " + output)
+def encrypt(new_text, shift_amount):
+    cipher_text = ""
+    for letter in text:
+        position = alphabet.index(letter)
+        new_position = position + shift_amount
+        new_letter = alphabet[new_position]
+        cipher_text += new_letter
+    print(f"The encoded test is {cipher_text}")
     
 
-encrypt(text, shift)
+encrypt(new_text=text, shift_amount=shift)
