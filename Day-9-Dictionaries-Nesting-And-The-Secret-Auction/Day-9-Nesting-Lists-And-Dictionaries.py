@@ -24,3 +24,18 @@ travel_log_two = {
         "total_visits": 7
     }
 }
+
+# Nesting Dictionary is a List
+
+travel_log_three = [
+    {   
+        "country": "France",
+        "value": ["Paris", "Lille", "Dijon"],
+        "cities_visited": 3
+    },
+    {
+        "country": "Germany",
+        "cities": ["Berlin", "Hamburg", "Stuttgart"],
+        "total_visits": 7
+    }
+]
