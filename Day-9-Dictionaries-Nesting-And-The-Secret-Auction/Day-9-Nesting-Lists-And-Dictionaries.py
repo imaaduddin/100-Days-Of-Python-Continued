@@ -19,5 +19,8 @@ travel_log_two = {
         "value": ["Paris", "Lille", "Dijon"],
         "cities_visited": 3
     },
-    "Germany": ["berlin", "Hamburg", "Stuttgart"],
+    "Germany": {
+        "cities": ["Berlin", "Hamburg", "Stuttgart"],
+        "total_visits": 7
+    }
 }
