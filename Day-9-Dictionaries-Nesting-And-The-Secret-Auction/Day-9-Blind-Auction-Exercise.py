@@ -14,3 +14,5 @@ while not bidding_finished:
     another_bid = input("Any other bidders? yes or no")
     if another_bid == "no":
         bidding_finished = True
+    else:
+        
