@@ -78,5 +78,10 @@ for i in range(2):
     user_cards.append(deal_card(cards))
     computer_cards.append(deal_card(cards))
 
-print(user_cards)
-print(computer_cards)
+# print(user_cards)
+# print(computer_cards)
+
+def calculate_score(cards):
+    score = sum(cards)
+    return score
+    
