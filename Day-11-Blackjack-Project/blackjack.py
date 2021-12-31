@@ -112,8 +112,7 @@ def compare(user_score, computer_score):
         print("User loses!")
     elif user_score == 0 or computer_score > 21:
         print("Computer loses. You win!")
-    elif:
-        user_score > computer_score:
+    elif user_score > computer_score:
             print("You win!")
     else:
         print("You lose!")
