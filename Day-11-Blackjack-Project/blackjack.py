@@ -62,22 +62,8 @@
 # Code
 from art import logo
 import random
-print(logo)
-
 
 cards = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
-
-user_cards = []
-computer_cards = []
-is_game_over = False
-
-def deal_card(cards):
-    return random.choice(cards)
-
-for i in range(2):
-    user_cards.append(deal_card(cards))
-    computer_cards.append(deal_card(cards))
-
 
 def calculate_score(cards):
     score = sum(cards)
@@ -87,23 +73,6 @@ def calculate_score(cards):
         cards.remove(11)
         cards.append(1)
     return score
-
-while not is_game_over:
-    user_score = calculate_score(user_cards)
-    computer_score = calculate_score(computer_cards)
-
-    if user_score or computer_score == 0 or user_score > 21:
-        is_game_over = True
-    else:
-        choice = input("Wanna draw another card? y or n")
-        if choice == "y":
-            user_cards.append(deal_card())
-        else:
-            is_game_over = True
-
-while computer_score != 0 and computer_score < 17:
-    computer_cards.append(deal_card())
-    computer_score = calculate_score(computer_cards)
 
 def compare(user_score, computer_score):
     if user_score == computer_score:
@@ -116,5 +85,45 @@ def compare(user_score, computer_score):
             print("You win!")
     else:
         print("You lose!")
-    
 
+def play_game():
+    print(logo)
+
+    user_cards = []
+    computer_cards = []
+    is_game_over = False
+
+    def deal_card(cards):
+        return random.choice(cards)
+
+    for i in range(2):
+        user_cards.append(deal_card(cards))
+        computer_cards.append(deal_card(cards))
+
+    while not is_game_over:
+        user_score = calculate_score(user_cards)
+        computer_score = calculate_score(computer_cards)
+        print(f"Your cards: {user_cards}, current score: {user_score}")
+        print(f" Computer's first card: {computer_cards[0]}")
+
+        if user_score or computer_score == 0 or user_score > 21:
+            is_game_over = True
+        else:
+            choice = input("Wanna draw another card? y or n")
+            if choice == "y":
+                user_cards.append(deal_card())
+            else:
+                is_game_over = True
+
+    while computer_score != 0 and computer_score < 17:
+        computer_cards.append(deal_card())
+        computer_score = calculate_score(computer_cards)
+        
+
+    print(f"Your final hand: {user_cards}, final score: {user_score}")
+    print(f"Computer's final hand: {computer_cards}, final score: {computer_score}")
+    print(compare(user_score, computer_score))
+
+play_again = input("Do you want to play a game of BlackJack? Type yes or no ")   
+while play_again == "yes":
+    play_game()
