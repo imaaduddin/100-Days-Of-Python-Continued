@@ -109,14 +109,14 @@ def play_game():
         if user_score or computer_score == 0 or user_score > 21:
             is_game_over = True
         else:
-            choice = input("Wanna draw another card? y or n")
+            choice = input("Wanna draw another card? y or n ")
             if choice == "y":
-                user_cards.append(deal_card())
+                user_cards.append(deal_card(cards))
             else:
                 is_game_over = True
 
     while computer_score != 0 and computer_score < 17:
-        computer_cards.append(deal_card())
+        computer_cards.append(deal_card(cards))
         computer_score = calculate_score(computer_cards)
         
 
