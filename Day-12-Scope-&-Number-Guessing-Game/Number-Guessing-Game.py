@@ -11,6 +11,7 @@
 
 
 from art import logo
+import random
 print(logo)
 
 print("Welcome to the Number Guessing Game!")
@@ -18,3 +19,25 @@ print("I'm thinking of a number between 1 and 100")
 print("Pssst, the correct answer is 17")
 
 difficulty = input("Choose a difficulty. Type 'easy' or 'hard': ")
+
+if difficulty == "easy":
+    answer = random.randint(1, 100)
+    print(answer)
+    print("You have 10 attempts remaining to guess the number")
+    guess_one = int(input("Make a guess: "))
+    for i in range(10, 1, -1):
+        if guess_one < answer:
+            print("Too low.")
+            print("Guess again.")
+            print(f"You have {i} attempts remaining to guess the number.")
+            guess_one = int(input("Make a guess: "))
+        elif guess_one > answer:
+            print("Too low.")
+            print("Guess again.")
+            print(f"You have {i} attempts remaining to guess the number.")
+            guess_one = int(input("Make a guess: "))
+        elif guess_one == answer:
+            print(f"You got it! The answer was {answer}")
+            break
+    print("You've run out of guesses, you lose.")
+            
