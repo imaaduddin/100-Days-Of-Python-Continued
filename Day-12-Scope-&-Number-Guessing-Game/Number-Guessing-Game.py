@@ -40,7 +40,7 @@ if difficulty == "easy":
         elif guess_one == answer:
             print(f"You got it! The answer was {answer}")
             break
-        else:
+        elif i == 0:
             print("You've run out of guesses, you lose.")
 
 # Hard Choice
@@ -63,7 +63,7 @@ if difficulty == "hard":
         elif guess_two == answer:
             print(f"You got it! The answer was {answer}")
             break
-        else:
+        elif i == 0:
             print("You've run out of guesses, you lose.")
             
             
