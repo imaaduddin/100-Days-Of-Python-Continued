@@ -4,37 +4,19 @@ from art import logo
 from art import vs
 import random
 
-def get_random_account():
-    # Get data from random account
-    return random.choice(data)
+# Display art
+print(logo)
 
-def format_data(account):
-    # Format account into printable text: name, description and country
-    name = account['name']
-    description = account['description']
-    country = account['country']
-    
-    return f'{name}, a {description}, from {country}'
+# Generate a random account from the game data
+account_a = random.choice(data)
+account_b = random.choice(data)
+if account_a == account_b:
+    account_b = random.choice(data)
 
-def check_answer(guess, a_followers, b_followers):
-    # Checks followers against user's guess and returns True if they got it right
-    # Or false if they got it wrong
-    if a_followers > b_followers:
-        return guess == 'a'
-    else:
-        return guess == 'b'
-        
-    
-def game():
-    print(logo)
-    score = 0
-    game_should_continue = True 
-    account_a = get_random_account()
-    account_b = get_random_account()
+# Format the account data into printable format
+account_name = account_a['name']
+account_description = account_a['description']
+account_country = account_a['country']
+print(f'{account_name}, a {account_description}, from {account_country}')
 
-    while game_should_continue:
-        account_a = account_b
-        account_b = get_random_account()
 
-        while account_a == account_b:
-            account_b = get_random_account()
