@@ -45,4 +45,6 @@ elif question == 'espresso' or question == 'latte' or question == 'cappuccino':
     if input3:
         input4 = input('How many nickles? ')
     if input4:
-        input5 = input('How many pennies')
+        input5 = input('How many pennies? ')
+        
+
