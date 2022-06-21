@@ -37,3 +37,6 @@ question = input('What would you like? (espresso/latte/cappuccino): ')
 
 if question == 'report':
     print(resources)
+elif question == 'espresso' or question == 'latte' or question == 'cappuccino':
+    print('Please insert coins.')
+    input2 = input('How many quarters? ')
