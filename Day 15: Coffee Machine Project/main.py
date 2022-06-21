@@ -40,3 +40,9 @@ if question == 'report':
 elif question == 'espresso' or question == 'latte' or question == 'cappuccino':
     print('Please insert coins.')
     input2 = input('How many quarters? ')
+    if input2:
+        input3 = input('How many dimes? ')
+    if input3:
+        input4 = input('How many nickles? ')
+    if input4:
+        input5 = input('How many pennies')
