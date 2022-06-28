@@ -1,6 +1,3 @@
-from tkinter import Menu
-
-
 MENU = {
     "espresso": {
         "ingredients": {
@@ -27,24 +24,53 @@ MENU = {
     }
 }
 
+profit = 0
 resources = {
     "water": 300,
     "milk": 200,
     "coffee": 100,
 }
 
-question = input('What would you like? (espresso/latte/cappuccino): ')
+def is_resource_sufficient(order_ingredients):
+    # returns True when order can be made, False if ingredients are insufficient 
+    for item in order_ingredients:
+        if order_ingredients[item] >= resources[item]:
+            print(f'Sorry there is not enough {item}.')
+            return False 
+        return True
 
-if question == 'report':
-    print(resources)
-elif question == 'espresso' or question == 'latte' or question == 'cappuccino':
+def process_coins():
+    # returns the total calculated from coins inserted
     print('Please insert coins.')
-    input2 = input('How many quarters? ')
-    if input2:
-        input3 = input('How many dimes? ')
-    if input3:
-        input4 = input('How many nickles? ')
-    if input4:
-        input5 = input('How many pennies? ')
-        
+    total = int(input('How many quarters?: ')) * 0.25
+    total += int(input("how many dimes?: ")) * 0.1
+    total += int(input("how many nickles?: ")) * 0.05
+    total += int(input("how many pennies?: ")) * 0.01
+    return total
 
+def is_transaction_successful(money_received, drink_cost):
+    # return True if payment is accepted or return False if money is insufficient
+    if money_received >= drink_cost:
+        global profit
+        profit += drink_cost 
+        return True
+    else:
+        print('Sorry that is not enough money. Money refunded.')
+        return False
+
+is_on = True
+
+while is_on:
+    choice = input('What would you like? (espresso/latte/cappuccino):')
+    if choice == 'off':
+        is_on = False
+    elif choice == 'report':
+        print(f"Water: {resources['water']}ml")
+        print(f"Milk: {resources['milk']}ml")
+        print(f"Coffee: {resources['coffee']}g")
+        print(f"Money: ${profit}")
+    else:
+        drink = MENU[choice]
+        if is_resource_sufficient(drink['ingredients']):
+            payment = process_coins()
+        
