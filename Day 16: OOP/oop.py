@@ -13,7 +13,10 @@
 # my_screen.exitonclick()
 
 from prettytable import PrettyTable
-
 table = PrettyTable()
+table.add_column('Pokemon Name', ['Squirtle', 'Charmander', 'Eevee'])
+table.add_column('Type', ['Water', 'Fire', 'Normal'])
+
+table.align = 'l'
 
 print(table)
